@@ -5,6 +5,14 @@
 #include <assert.h>
 #include "lexer.h" 
 
+maillons* est_bool(maillon* debut){
+    maillon* contenu = debut;
+    while((contenu->argument!=NULL)){
+        if ((contenu->argument == "true")||(contenu->argument == "false") 
+        contenu = contenu->suivant ;
+    }
+}
+
 /*gere les operateur dans les variable*/
 maillon* contenu_variable(maillon* debut){
     maillon* contenu = debut;
@@ -17,7 +25,7 @@ maillon* contenu_variable(maillon* debut){
         contenu = contenu->suivant ;
     }
     return contenu;
-}
+} 
 /*traduit les creation variable*/
 maillon* variable(maillon* debut){
     assert(debut->lexeme == "T" || debut->lexeme != "void");
